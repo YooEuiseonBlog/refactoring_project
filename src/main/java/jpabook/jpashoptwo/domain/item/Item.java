@@ -1,6 +1,7 @@
 package jpabook.jpashoptwo.domain.item;
 
 import jpabook.jpashoptwo.domain.Category;
+import jpabook.jpashoptwo.domain.CategoryItem;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -24,8 +25,11 @@ public abstract class Item {
     private int price;
     private int stockQuantity;
 
-    @ManyToMany(mappedBy = "items")
-    private List<Category> categories = new ArrayList<>();
+//    @ManyToMany(mappedBy = "items")
+//    private List<Category> categories = new ArrayList<>();
+
+    @OneToMany(mappedBy = "item")
+    private List<CategoryItem> categoryItems = new ArrayList<>();
 
     public Item(String name, int price, int stockQuantity) {
         this.name = name;

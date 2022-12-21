@@ -1,6 +1,7 @@
 package jpabook.jpashoptwo.domain;
 
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -23,4 +24,10 @@ public class Delivery {
 
     @Enumerated(EnumType.STRING)
     private DeliveryStatus status; //READY, COMP
+
+    @Builder
+    public Delivery(Address address, DeliveryStatus status) {
+        this.address = address;
+        this.status = status;
+    }
 }
